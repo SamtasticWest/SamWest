@@ -219,6 +219,24 @@
                             // Check if the person exists in the map, if not default to "Inconnu"
                             personLabel = personMap[person] || "Inconnu";
                         }
+                        
+                         else if (verbTense.startsWith("ind:imp")) {
+                            tenseLabel = "L'indicatif Imparfait";
+                            const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 2p)
+                            const person = personPart.split(";")[0]; // Only take the part before the semicolon
+
+                            const personMap = {
+                                "1s": "1ère personne du singulier",
+                                "2s": "2e personne du singulier",
+                                "3s": "3e personne du singulier",
+                                "1p": "1ère personne du pluriel",
+                                "2p": "2e personne du pluriel",
+                                "3p": "3e personne du pluriel"
+                            };
+
+                            // Check if the person exists in the map, if not default to "Inconnu"
+                            personLabel = personMap[person] || "Inconnu";
+                        }
 
                         // Process for "futur simple" (e.g., "ind:fut:1s")
                         else if (verbTense.startsWith("ind:fut")) {
