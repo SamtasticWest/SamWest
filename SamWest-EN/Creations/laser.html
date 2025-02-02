@@ -1,208 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<title>Sam West</title>
-	<link rel="shortcut icon" href="../images/favicon.ico">
-	<link rel="stylesheet" href="../styles/normalize.css">
-	<link rel="stylesheet" href="../styles/creations.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Engraving Creations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .gallery {
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+        .gallery img {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .gallery a {
+            text-decoration: none;
+            color: #000;
+        }
+        .desc {
+            margin-top: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+       <link rel="stylesheet" href="../styles.css" />
 </head>
-
 <body>
-	<header>
-		<img src="../images/SWLOGO.PNG" alt="SW logo" height="90">
-		<h2><span class="shadow">Sam West's Website</span></h2>
-		<h3>A Collection Of My Skills, Achievements And More!</h3>
-	</header>
-	<nav id="nav_menu">
-    	<ul>
-        	<li><a href="../index.html" >Home</a></li>
-        	<li><a href="../Resume/Resume.html">Resume</a></li>
-        	<li><a href="Creations.html" class="current">Creations</a>
-        	<ul>
-                	<li><a href="3D.html">3D Printed</a></li>
-                	<li><a href="laser.html" class="current">Laser Engraving/Cutting</a></li>
-                	<li><a href="electronics.html" >Electrionics</a></li>
-                	<li><a href="programming.html">Programming</a></li>
-            	</ul>
-        	</li>
-        	<li><a href="../hobbies/hobbies.html" >Hobbies</a></li>
-        	<li><a href="../Contact/Contact.html">Contact</a></li>
-    	</ul>
-	</nav>
-	<main>
-		<section>
-		    <h1>My Laser Engraved/Cut Creations!</h1>
-			
-            <article>
-            <h2>Wood Engravings</h2>
-            
-			 <div class="gallery">
-                    <a target="_blank" href="../images/lasers/wood/1.jpg">
-                    <img src="../images/lasers/wood/1.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Zora Link</div>
-                </div>
+
+    <!-- Header with Navigation -->
+    <header>
+         <nav>
+                <ul class="navbar">
+                    
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Creations ↓</a>
+                        <div class="dropdown">
+                           <a href="electronics.html">Electronics</a>
+                            <a href="3D.html">3D Printer</a>
+                            
+                            <a href="programming.html">Programming</a>
+                        </div>
+                    </li>
                 
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/wood/2.jpg">
-                    <img src="../images/lasers/wood/2.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">A spectactular <br>Spider-Man cover</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/wood/4.jpg">
-                    <img src="../images/lasers/wood/4.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">A Spider-Gwen varient <br>cover</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/wood/3.jpg">
-                    <img src="../images/lasers/wood/3.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">A Spider-Gwen cover</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/wood/5.jpg">
-                    <img src="../images/lasers/wood/5.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Link from BotW</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/wood/8.png">
-                    <img src="../images/lasers/wood/8.png" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">A Gwenpool cover.</div>
-                </div>
-                
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <h2>Acrylic Engravings/cuts</h2>
-                
-                
-                 <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/1.jpg">
-                    <img src="../images/lasers/acylic/1.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Ocarina of Time<br>cover</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/2.jpg">
-                    <img src="../images/lasers/acylic/2.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Day of the Tentacle<br> cover</div>
-                </div>
-                
-               <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/3.jpg">
-                    <img src="../images/lasers/acylic/3.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Pokemon Gengar<br>small engraving</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/4.jpg">
-                    <img src="../images/lasers/acylic/4.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Pokemon Chikorita<br>small engraving</div>
-                </div>
-                
-                 <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/5.jpg">
-                    <img src="../images/lasers/acylic/5.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Pokemon Dragonite<br>small engraving</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/6.jpg">
-                    <img src="../images/lasers/acylic/6.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Spider-Man cover<br>engraving</div>
-                </div>
-                
-               <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/7.jpg">
-                    <img src="../images/lasers/acylic/7.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">First Superman Cover</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/8.jpg">
-                    <img src="../images/lasers/acylic/8.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Spider-Gwen Cover</div>
-                </div>
-                
-                 <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/9.jpg">
-                    <img src="../images/lasers/acylic/9.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Spider-Man Noir Cover</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/10.jpg">
-                    <img src="../images/lasers/acylic/10.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">First Spider-Man Cover</div>
-                </div>
-                
-               <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/11.jpg">
-                    <img src="../images/lasers/acylic/11.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Charizard Pokemon<br>card engraving</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/12.jpg">
-                    <img src="../images/lasers/acylic/12.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Side by side of the<br>broken Spectrum<br>analyzer cover<br>and the new cut one</div>
-                </div>
-                
-                 <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/13.jpg">
-                    <img src="../images/lasers/acylic/13.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">New Spectrum<br>analyzer cover</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/14.jpg">
-                    <img src="../images/lasers/acylic/14.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Quadrant covers for<br>the Medicine Wheel</div>
-                </div>
-                
-               <div class="gallery">
-                    <a target="_blank" href="../images/lasers/acylic/01.jpg">
-                    <img src="../images/lasers/acylic/01.jpg" alt="electronics" width="300" height="250">
-                    </a>
-                <div class="desc">Batman Logo cut</div>
-                </div>
-                
-              
-                 
-                
-                
-                
-			</article>
-			
-			
-		</section>
-		<aside>
-			<h2>Laser Engraving/Cutting</h2>
-			<p>Here are some examples of some of my favourite things I've made with electronics. Feel free to click on any to see them in their full size.
-			</p>
-			
-		</aside>
-	</main>
-	<footer>
-		<p>Samtastic</p>
-	</footer>
+                </ul>
+            </nav>
+    </header>
+
+    <h1>Laser Engraving Creations</h1>
+
+    <p style="text-align: center;">A few years after university, I became interested in laser engraving and cutting, which turned into both a passion and a business activity. I use my laser cutting machine to engrave designs on various materials, including wood and acrylic. These creations vary, ranging from video game and comic book covers to custom designs. I keep some works for my personal collection, and others are for sale.</p>
+
+    <h2>Wood Engravings and Cuttings</h2>
+    <div class="container">
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/1.jpg">
+                <img src="../images/lasers/wood/1.jpg" alt="Zora Link" width="300" height="250">
+            </a>
+            <div class="desc">Zora Link</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/2.jpg">
+                <img src="../images/lasers/wood/2.jpg" alt="Spectacular Spider-Man Cover" width="300" height="250">
+            </a>
+            <div class="desc">Spectacular Spider-Man Cover</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/4.jpg">
+                <img src="../images/lasers/wood/4.jpg" alt="Spider-Gwen Variant Cover" width="300" height="250">
+            </a>
+            <div class="desc">Spider-Gwen Cover Variant</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/3.jpg">
+                <img src="../images/lasers/wood/3.jpg" alt="Spider-Gwen Cover" width="300" height="250">
+            </a>
+            <div class="desc">Spider-Gwen Cover</div>
+        </div>
+    </div>
+
+    <h2>Acrylic Engravings and Cuttings</h2>
+    <div class="container">
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/1.jpg">
+                <img src="../images/lasers/acylic/1.jpg" alt="Ocarina of Time Cover" width="300" height="250">
+            </a>
+            <div class="desc">Ocarina of Time Cover</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/2.jpg">
+                <img src="../images/lasers/acylic/2.jpg" alt="Day of the Tentacle Cover" width="300" height="250">
+            </a>
+            <div class="desc">Day of the Tentacle Cover</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/3.jpg">
+                <img src="../images/lasers/acylic/3.jpg" alt="Pokémon Gengar Engraving" width="300" height="250">
+            </a>
+            <div class="desc">Pokémon Gengar Engraving</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/4.jpg">
+                <img src="../images/lasers/acylic/4.jpg" alt="Pokémon Chikorita Engraving" width="300" height="250">
+            </a>
+            <div class="desc">Pokémon Chikorita Engraving</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/5.jpg">
+                <img src="../images/lasers/acylic/5.jpg" alt="Pokémon Dragonite Engraving" width="300" height="250">
+            </a>
+            <div class="desc">Pokémon Dragonite Engraving</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/6.jpg">
+                <img src="../images/lasers/acylic/6.jpg" alt="Spider-Man Cover Engraving" width="300" height="250">
+            </a>
+            <div class="desc">Spider-Man Cover Engraving</div>
+        </div>
+    </div>
+
 </body>
 </html>
