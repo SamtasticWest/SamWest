@@ -112,7 +112,7 @@
             </nav>
         </header>
 
-        <div class="container">
+<div class="container">
             <h2>Entrez un mot pour l'identifier</h2>
             <input type="text" id="wordInput" placeholder="Entrez un mot en français" />
             <button onclick="searchWord()">Identifier</button>
@@ -152,123 +152,161 @@
                 const csvData = await fetchCSV();
                 const rows = csvData.split("\n").map((row) => row.split(",")); // Split by commas (,)
 
-                // Store all found rows for duplicates
-                const foundRows = rows.filter((row) => row[0]?.toLowerCase() === inputWord);
+                for (let row of rows) {
+                    if (row[0]?.toLowerCase() === inputWord) {
+                        const wordType = row[3] || "Inconnu"; // Column 4 (cgram)
+                        const gender = row[4] || "Inconnu"; // Column 5 (m/f)
+                        const number = row[5] || "Inconnu"; // Column 6 (s/p)
+                        const infinitive = row[2] || "Inconnu"; // Column 3 (lemme)
+                        const verbTense = row[10] || "Inconnu"; // Column 11 (infover)
 
-                if (foundRows.length === 0) {
-                    resultElement.textContent = "Mot non trouvé dans la base de données.";
-                    return;
+                        // Mapping grammatical classes to readable names
+                        const wordTypeMap = {
+                            NOM: "Nom",
+                            VER: "Verbe",
+                            ADJ: "Adjectif",
+                            ADV: "Adverbe",
+                            PREP: "Préposition",
+                            CONJ: "Conjonction",
+                            INTJ: "Interjection",
+                            DET: "Déterminant",
+                            PRON: "Pronom"
+                        };
+
+                        // Process verb tense (e.g., "ind:pre:3p")
+                        let tenseLabel = "Inconnu";
+                        let personLabel = "Inconnu";
+
+                        if (verbTense.startsWith("ind:pre")) {
+                            tenseLabel = "Indicatif présent";
+                            const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 3p)
+                            const person = personPart.split(";")[0]; // Only take the part before the semicolon
+
+                            const personMap = {
+                                "1s": "1ère personne du singulier",
+                                "2s": "2e personne du singulier",
+                                "3s": "3e personne du singulier",
+                                "1p": "1ère personne du pluriel",
+                                "2p": "2e personne du pluriel",
+                                "3p": "3e personne du pluriel"
+                            };
+
+                            // Check if the person exists in the map, if not default to "Inconnu"
+                            personLabel = personMap[person] || "Inconnu";
+                        }
+
+                        // Process for "participe présent" (e.g., "par:pre;")
+                        else if (verbTense.startsWith("par:pre")) {
+                            tenseLabel = "Participe présent";
+                            showGenderAndNumber = false; // Don't show gender and number for participle
+                        }
+
+                        // Process for "imparfait de l'indicatif" (e.g., "imp:pre:2p")
+                        else if (verbTense.startsWith("imp:pre")) {
+                            tenseLabel = "Imparfait de l'indicatif";
+                            const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 2p)
+                            const person = personPart.split(";")[0]; // Only take the part before the semicolon
+
+                            const personMap = {
+                                "1s": "1ère personne du singulier",
+                                "2s": "2e personne du singulier",
+                                "3s": "3e personne du singulier",
+                                "1p": "1ère personne du pluriel",
+                                "2p": "2e personne du pluriel",
+                                "3p": "3e personne du pluriel"
+                            };
+
+                            // Check if the person exists in the map, if not default to "Inconnu"
+                            personLabel = personMap[person] || "Inconnu";
+                        }
+
+                        // Process for "futur simple" (e.g., "ind:fut:1s")
+                        else if (verbTense.startsWith("ind:fut")) {
+                            tenseLabel = "Futur simple";
+                            const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 1s)
+                            const person = personPart.split(";")[0]; // Only take the part before the semicolon
+
+                            const personMap = {
+                                "1s": "1ère personne du singulier",
+                                "2s": "2e personne du singulier",
+                                "3s": "3e personne du singulier",
+                                "1p": "1ère personne du pluriel",
+                                "2p": "2e personne du pluriel",
+                                "3p": "3e personne du pluriel"
+                            };
+
+                            // Check if the person exists in the map, if not default to "Inconnu"
+                            personLabel = personMap[person] || "Inconnu";
+                        }
+
+                        // Process for "conditionnel présent" (e.g., "cnd:pre:1s")
+                        if (verbTense.startsWith("cnd:pre")) {
+                            tenseLabel = "Conditionnel présent";
+                            const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 1s)
+                            const person = personPart.split(";")[0]; // Only take the part before the semicolon
+
+                            const personMap = {
+                                "1s": "1ère personne du singulier",
+                                "2s": "2e personne du singulier",
+                                "3s": "3e personne du singulier",
+                                "1p": "1ère personne du pluriel",
+                                "2p": "2e personne du pluriel",
+                                "3p": "3e personne du pluriel"
+                            };
+
+                            // Check if the person exists in the map, if not default to "Inconnu"
+                            personLabel = personMap[person] || "Inconnu";
+                        }
+
+                        // If the word is a verb, don't display genre and number, but display infinitive and verb tense
+                        if (wordType === "VER") {
+                            resultElement.innerHTML = `<table>
+                            <tr>
+                                <th>Mot</th>
+                                <td>${inputWord}</td>
+                            </tr>
+                            <tr>
+                                <th>Classe de mot</th>
+                                <td>${wordTypeMap[wordType] || "Inconnu"}</td>
+                            </tr>
+                            <tr>
+                                <th>Infinitif</th>
+                                <td>${infinitive}</td>
+                            </tr>
+                            <tr>
+                                <th>Temps de verbe</th>
+                                <td>${tenseLabel}</td>
+                            </tr>
+                            <tr>
+                                <th>Personne</th>
+                                <td>${personLabel}</td>
+                            </tr>
+                        </table>`;
+                        } else {
+                            resultElement.innerHTML = `<table>
+                            <tr>
+                                <th>Mot</th>
+                                <td>${inputWord}</td>
+                            </tr>
+                            <tr>
+                                <th>Classe de mot</th>
+                                <td>${wordTypeMap[wordType] || "Inconnu"}</td>
+                            </tr>
+                            <tr>
+                                <th>Genre</th>
+                                <td>${gender === "m" ? "Masculin" : gender === "f" ? "Féminin" : "Inconnu"}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>${number === "s" ? "Singulier" : number === "p" ? "Pluriel" : "Inconnu"}</td>
+                            </tr>
+                        </table>`;
+                        }
+                        return;
+                    }
                 }
 
-                // Process each found row
-                let resultHTML = "";
-                foundRows.forEach((row, index) => {
-                    const wordType = row[3] || "Inconnu"; // Column 4 (cgram)
-                    const gender = row[4] || "Inconnu"; // Column 5 (m/f)
-                    const number = row[5] || "Inconnu"; // Column 6 (s/p)
-                    const infinitive = row[2] || "Inconnu"; // Column 3 (lemme)
-                    const verbTense = row[10] || "Inconnu"; // Column 11 (infover)
-
-                    // Mapping grammatical classes to readable names
-                    const wordTypeMap = {
-                        NOM: "Nom",
-                        VER: "Verbe",
-                        ADJ: "Adjectif",
-                        ADV: "Adverbe",
-                        PREP: "Préposition",
-                        CONJ: "Conjonction",
-                        INTJ: "Interjection",
-                        DET: "Déterminant",
-                        PRON: "Pronom"
-                    };
-
-                    // Process verb tense (e.g., "ind:pre:3p")
-                    let tenseLabel = "Inconnu";
-                    let personLabel = "Inconnu";
-
-                    if (verbTense.startsWith("ind:pre")) {
-                        tenseLabel = "Indicatif présent";
-                        const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 3p)
-                        const person = personPart.split(";")[0]; // Only take the part before the semicolon
-
-                        const personMap = {
-                            "1s": "1ère personne du singulier",
-                            "2s": "2e personne du singulier",
-                            "3s": "3e personne du singulier",
-                            "1p": "1ère personne du pluriel",
-                            "2p": "2e personne du pluriel",
-                            "3p": "3e personne du pluriel"
-                        };
-
-                        personLabel = personMap[person] || "Inconnu";
-                    }
-
-                    // Add logic for other tenses:
-                    if (verbTense.startsWith("par:pre")) {
-                        tenseLabel = "Participe présent";
-                    } else if (verbTense.startsWith("sub:pre")) {
-                        tenseLabel = "Subjonctif présent";
-                        personLabel = "2e personne du singulier"; // Subjunctive for 2s (extracted from sub:pre:2s)
-                    } else if (verbTense.startsWith("cnd:pre")) {
-                        tenseLabel = "Conditionnel présent";
-                        const personParts = verbTense.split(":")[2]; // Extracting person info correctly for cnd:pre
-                        const person = personParts.split(";")[0]; // Only the first part before any semicolons
-
-                        const personMap = {
-                            "1s": "1ère personne du singulier",
-                            "2s": "2e personne du singulier",
-                            "3s": "3e personne du singulier",
-                            "1p": "1ère personne du pluriel",
-                            "2p": "2e personne du pluriel",
-                            "3p": "3e personne du pluriel"
-                        };
-
-                        personLabel = personMap[person] || "Inconnu";
-                    } else if (verbTense.startsWith("ind:fut")) {
-                        tenseLabel = "Futur simple";
-                        const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 1s)
-                        const personMap = {
-                            "1s": "1ère personne du singulier",
-                            "2s": "2e personne du singulier",
-                            "3s": "3e personne du singulier",
-                            "1p": "1ère personne du pluriel",
-                            "2p": "2e personne du pluriel",
-                            "3p": "3e personne du pluriel"
-                        };
-                        personLabel = personMap[personPart] || "Inconnu";
-                    } else if (verbTense.startsWith("imp:pre")) {
-                        tenseLabel = "Imparfait de l'indicatif";
-                        const personPart = verbTense.split(";")[0]; // Extract person info (e.g., 2p)
-                        personLabel = "2e personne du pluriel";
-                    }
-
-                    // If the word is a verb, don't display genre and number, but display infinitive and verb tense
-                    resultHTML += `<table>
-                    <tr>
-                        <th>Mot ${foundRows.length > 1 ? index + 1 : ""}</th>
-                        <td>${inputWord}</td>
-                    </tr>
-                    <tr>
-                        <th>Classe de mot</th>
-                        <td>${wordTypeMap[wordType] || "Inconnu"}</td>
-                    </tr>
-                    <tr>
-                        <th>Infinitif</th>
-                        <td>${infinitive}</td>
-                    </tr>
-                    <tr>
-                        <th>Temps de verbe</th>
-                        <td>${tenseLabel}</td>
-                    </tr>
-                    <tr>
-                        <th>Personne</th>
-                        <td>${personLabel}</td>
-                    </tr>
-                </table><br>`;
-                });
-
-                // Display the result
-                resultElement.innerHTML = resultHTML;
+                resultElement.textContent = "Mot non trouvé dans la base de données.";
             }
         </script>
     </body>
