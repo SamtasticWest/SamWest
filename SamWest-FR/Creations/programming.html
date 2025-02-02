@@ -1,82 +1,143 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="utf-8">
-    <title>Sam West</title>
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/normalize.css">
-    <link rel="stylesheet" href="../styles/creations.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créations en Gravure Laser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .gallery {
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+        .gallery img {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .gallery a {
+            text-decoration: none;
+            color: #000;
+        }
+        .desc {
+            margin-top: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        /* Navbar styles */
 
+    </style>
+       <link rel="stylesheet" href="../styles.css" />
+</head>
 <body>
+
+    <!-- Header with Navigation -->
     <header>
-        <img src="../images/SWLOGO.PNG" alt="Logo SW" height="90">
-        <h2><span class="shadow">Site web de Sam West</span></h2>
-        <h3>Une collection de mes compétences, réalisations et bien plus encore !</h3>
-    </header>
-    <nav id="nav_menu">
-        <ul>
-            <li><a href="../index.html" >Accueil</a></li>
-            <li><a href="../Resume/Resume.html">Curriculum vitae</a></li>
-            <li><a href="Creations.html" class="current">Créations</a>
-                <ul>
-                    <li><a href="3D.html">Impressions 3D</a></li>
-                    <li><a href="laser.html">Gravure/Découpe laser</a></li>
-                    <li><a href="electronics.html">Électronique</a></li>
-                    <li><a href="programming.html" class="current">Programmation</a></li>
+         <nav>
+                <ul class="navbar">
+                     <li><a href ="classesdemots/index.html"> Outil de grammaire </a></li>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li class="dropdown">
+                        <a href="#">Créations ↓</a>
+                        <div class="dropdown">
+                           <a href="electronics.html">Électronique</a>
+                            <a href="3D.html">Imprimante 3D</a>
+                            
+                            <a href="programming.html">Programmation</a>
+                        </div>
+                    </li>
+                
                 </ul>
-            </li>
-            <li><a href="../hobbies/hobbies.html" >Loisirs</a></li>
-            <li><a href="../Contact/Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h1>Mes Créations en Programmation !</h1>
-            <article>
-                <div class="gallery">
-                    <a target="_blank" href="../images/coding/monke.jpg">
-                        <img src="../images/coding/monke.jpg" alt="monke" width="800" height="471">
-                    </a>
-                    <div class="desc">Ce code est basé sur le théorème du singe infini, qui stipule essentiellement qu'un singe ayant un temps infini avec une machine à écrire écrirait les meilleures œuvres de Shakespeare. Ce code prend n'importe quel texte tapé et essaie continuellement des touches aléatoires jusqu'à ce qu'il corresponde.</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/coding/pew.mp4">
-                        <video width="700" controls>
-                            <source src="../images/coding/pew.mp4" type="video/mp4">
-                        </video>
-                    </a>
-                    <div class="desc">Space ship goes pew est un simple jeu twin-sticks que j'ai codé et pour lequel j'ai créé les éléments graphiques.</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/coding/lux.jpg">
-                        <img src="../images/coding/lux.jpg" alt="lux" width="800" height="471">
-                    </a>
-                    <div class="desc">Un luxmètre basé sur Arduino avec un affichage visuel pour l'utilisateur final qui affiche le lux actuel ainsi que la valeur attendue.</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/coding/site.png">
-                        <img src="../images/coding/site.PNG" alt="site" width="800">
-                    </a>
-                    <div class="desc">C'est évident, mais je tiens à le mentionner, ce site web a également été créé par moi.</div>
-                </div>
-            </article>
-        </section>
-        <aside>
-            <h2>Programmation</h2>
-            <p>Voici quelques exemples de mes créations préférées réalisées en codant. N'hésitez pas à cliquer sur chacune d'elles pour les voir en taille réelle.</p>
-            <p>Vous pouvez voir ici les langages de programmation avec lesquels je suis à l'aise :</p>
-            <ul>
-                <li>Java</li>
-                <li>C#</li>
-                <li>Python</li>
-                <li>C++</li>
-            </ul>
-        </aside>
-    </main>
-    <footer>
-        <p>Samtastic</p>
-    </footer>
+            </nav>
+    </header>
+
+    <h1>Créations en Gravure Laser</h1>
+
+    <p style="text-align: center;">Quelques années après l'université, je me suis intéressé à la gravure et découpe au laser, ce qui est devenu une passion et une activité commerciale. J'utilise ma machine de découpe laser pour graver des designs sur différents matériaux, notamment le bois et l'acrylique. Ces créations varient, allant de couvertures de jeux vidéo et de bandes dessinées à des designs personnalisés. Je garde certaines œuvres pour ma collection personnelle, et d'autres sont mises en vente.</p>
+
+    <h2>Gravures et Découpes en Bois</h2>
+    <div class="container">
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/1.jpg">
+                <img src="../images/lasers/wood/1.jpg" alt="Zora Link" width="300" height="250">
+            </a>
+            <div class="desc">Zora Link</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/2.jpg">
+                <img src="../images/lasers/wood/2.jpg" alt="Couverture Spectaculaire Spider-Man" width="300" height="250">
+            </a>
+            <div class="desc">Couverture Spectaculaire de Spider-Man</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/4.jpg">
+                <img src="../images/lasers/wood/4.jpg" alt="Couverture Variante Spider-Gwen" width="300" height="250">
+            </a>
+            <div class="desc">Une Variante de la Couverture de Spider-Gwen</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/wood/3.jpg">
+                <img src="../images/lasers/wood/3.jpg" alt="Couverture de Spider-Gwen" width="300" height="250">
+            </a>
+            <div class="desc">Couverture de Spider-Gwen</div>
+        </div>
+    </div>
+
+    <h2>Gravures et Découpes en Acrylique</h2>
+    <div class="container">
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/1.jpg">
+                <img src="../images/lasers/acylic/1.jpg" alt="Couverture Ocarina of Time" width="300" height="250">
+            </a>
+            <div class="desc">Couverture d'Ocarina of Time</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/2.jpg">
+                <img src="../images/lasers/acylic/2.jpg" alt="Couverture Day of the Tentacle" width="300" height="250">
+            </a>
+            <div class="desc">Couverture de Day of the Tentacle</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/3.jpg">
+                <img src="../images/lasers/acylic/3.jpg" alt="Gravure Pokémon Gengar" width="300" height="250">
+            </a>
+            <div class="desc">Gravure de Pokémon Gengar</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/4.jpg">
+                <img src="../images/lasers/acylic/4.jpg" alt="Gravure Pokémon Chikorita" width="300" height="250">
+            </a>
+            <div class="desc">Gravure de Pokémon Chikorita</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/5.jpg">
+                <img src="../images/lasers/acylic/5.jpg" alt="Gravure Pokémon Dragonite" width="300" height="250">
+            </a>
+            <div class="desc">Gravure de Pokémon Dragonite</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="../images/lasers/acylic/6.jpg">
+                <img src="../images/lasers/acylic/6.jpg" alt="Couverture Spider-Man" width="300" height="250">
+            </a>
+            <div class="desc">Gravure de Couverture Spider-Man</div>
+        </div>
+    </div>
+
 </body>
 </html>
