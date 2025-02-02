@@ -1,81 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    <title>Sam West</title>
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-
-<body>
-    <header>
-        <img src="images/SWLOGO.PNG" alt="Logo SW" height="90">
-        <h2><span class="shadow">Site Web de Sam West</span></h2>
-        <h3>Une Collection De Mes Compétences, Réalisations Et Plus Encore !</h3>
-    </header>
-    <nav id="nav_menu">
-        <ul>
-            <li><a href="index.html" class="current">Accueil</a></li>
-            <li><a href="Resume/Resume.html">Curriculum Vitae</a></li>
-            <li><a href="Creations/Creations.html">Créations</a>
-                <ul>
-                    <li><a href="Creations/3D.html">Impression 3D</a></li>
-                    <li><a href="Creations/laser.html">Gravure/Découpe Laser</a></li>
-                    <li><a href="Creations/electronics.html">Électronique</a></li>
-                    <li><a href="Creations/programming.html">Programmation</a></li>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Les Verbes</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="navbar">
+                    <li><a href ="classesdemots/index.html"> Outil de grammaire </a></li>
+                    <li class="dropdown">
+                        <a href="#"> Créations ↓</a>
+                        <div class="dropdown">
+                            <a href="Creations/electronics.html">Électronique</a>
+                            <a href="Creations/3D.html">Imprimante 3D</a>
+                            <a href="Creations/laser.html">Gravure/Découpe Laser</a>
+                            <a href="Creations/programming.html">Programmation</a>
+                        </div>
+                    </li>
+                    <li><a href="Resume/Resume.html">CV</a></li>
+                   
                 </ul>
-            </li>
-            <li><a href="hobbies/hobbies.html">Loisirs</a></li>
-            <li><a href="Contact/Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h1>Exemples</h1>
-            <article>
-                <h2>Expérience Professionnelle</h2>
-                <ul>
-                    <li>Stages d'Enseignement</li>
-                    <li>Technicien en Électronique</li>
-                    <li>Assurance Qualité</li>
-                    <li>Informatique</li>
-                </ul>
-                <h2>Applications Pratiques</h2>
-                <img src="images/helmetbracket.jpg" alt="Support de Casque Samtastic" height="175">
-                <h3>Support de Casque Samtastic</h3>
-                <p>Mon lieu de travail avait besoin d'un moyen de stocker efficacement des casques tout en étant assemblés, tout en occupant peu d'espace dans l'entrepôt, car ils sont souvent assemblés par lots de 50 ou plus. En utilisant mes connaissances en logiciels de FAO, j'ai conçu une pince pour s'adapter aux étagères en fil métallique, ce qui nous a permis de maintenir plusieurs casques verticalement sur des étagères en fil mobile, les maintenant ainsi hors du chemin.</p>
-                <p>
-                    <a href="Creations/3D.html">En savoir plus.</a>&nbsp;
-                </p>
-                <img src="images/spectanalscreen.jpg" alt="Protège-Écran de l'Analyseur de Spectre Samtastic" height="175">
-                <h3>Protège-Écran de l'Analyseur de Spectre Samtastic</h3>
-                <p>L'analyseur de spectre de mon lieu de travail a subi une chute lors de son utilisation sur le terrain, ce qui a entraîné la casse de la vitre recouvrant l'écran. Comme l'analyseur est fréquemment utilisé dans des endroits sales, ce protecteur d'écran est important pour maintenir l'affichage de l'unité lisible. Cependant, en raison de sa conception très spécifique, il n'est pas quelque chose qui peut être facilement acheté. En utilisant mon expérience avec les logiciels de CAO, j'ai créé le contour de l'écran avec les boutons et j'ai découpé au laser un nouveau protecteur d'écran à partir d'une feuille d'acrylique.</p>
-                <p>
-                    <a href="Creations/laser.html">En savoir plus.</a>&nbsp;
-                </p>
-                <img src="images/grantcomputer.jpg" alt="Ordinateur Spécialisé" height="175">
-                <h3>Ordinateur Spécialisé</h3>
-                <p>Une entreprise locale avait besoin d'un ordinateur robuste pour gérer ses 25+ caméras de sécurité ainsi que d'autres tâches opérationnelles dans l'installation. En utilisant mes connaissances en informatique, je les ai aidés à choisir les bonnes pièces pour le travail, à assembler leur ordinateur, à configurer le logiciel et à l'intégrer dans leur réseau.</p>
-                <p>
-                    <a href="Creations/electronics.html">En savoir plus.</a>&nbsp;
-                </p>
-            </article>
-            <h2>Pour plus d'informations, veuillez consulter l'onglet <a href="Creations/Creations.html">créations</a> pour en savoir plus sur :</h2>
-            <ul>
-                <li>Compétences Techniques</li>
-                <li>Équipement Utilisé</li>
-                <li>Autres Créations</li>
-            </ul>
-        </section>
-        <aside>
-            <h2>À Propos de Moi</h2>
-            <p>En bref, je m'appelle Sam West, j'ai 27 ans et je suis diplômé en électronique et en littérature anglaise à l'université, avec une mineure en informatique. Je termine actuellement ma B.Éd avec l'intention de devenir enseignant. J'ai beaucoup d'expérience dans le domaine de l'électronique, de la formation et de l'éducation. Je suis très compétent en informatique et j'adore essayer d'apprendre de nouvelles choses.</p>
-        </aside>
-    </main>
-    <footer>
-        <p>Samtastic</p>
-    </footer>
-</body>
+            </nav>
+        </header>
+        <div class="container">
+            <main>
+                <section>
+                    <h1>À Propos de Moi</h1>
+
+                    <p>
+                        Mon nom est Sam West et je suis diplômé d'études collégiales dans le domaine de l'électronique
+                        du Collège Boréal. J'ai ensuite étudié à l'Université Laurentienne où j'ai obtenu mon
+                        baccalauréat en littérature anglaise avec une mineure en informatique. J'ai ensuite obtenu mon
+                        B.Ed moyen/intermidiaire de l'université Laurentienne avec ma didatique en anglais.
+                    </p>
+                    <p>
+                        J'ai toujours eu une passion pour la technologie et pour l'enseignement. Au cours de ma carrière
+                        professionnelle, j'ai travaillé dans une variété d'environnements allant de plus de cinq mille
+                        pieds sous terre à l'enseignement en classe.
+                    </p>
+                </section>
+            </main>
+        </div>
+    </body>
 </html>
