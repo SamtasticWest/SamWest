@@ -1,121 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    <title>Sam West</title>
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/normalize.css">
-    <link rel="stylesheet" href="../styles/creations.css">
-</head>
-
-<body>
-    <header>
-        <img src="../images/SWLOGO.PNG" alt="Logo SW" height="90">
-        <h2><span class="shadow">Le site web de Sam West</span></h2>
-        <h3>Une collection de mes compétences, réalisations et bien plus encore !</h3>
-    </header>
-    <nav id="nav_menu">
-        <ul>
-            <li><a href="../index.html" >Accueil</a></li>
-            <li><a href="../Resume/Resume.html">Curriculum vitae</a></li>
-            <li><a href="Creations.html" class="current">Créations</a>
-                <ul>
-                    <li><a href="3D.html">Impressions 3D</a></li>
-                    <li><a href="laser.html">Gravure/Découpe au laser</a></li>
-                    <li><a href="electronics.html" class="current">Électronique</a></li>
-                    <li><a href="programming.html">Programmation</a></li>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Créations Électroniques</title>
+        <link rel="stylesheet" href="../styles.css" />
+        <style>
+            /* Resize images to smaller scale */
+            .image-gallery img {
+                width: 45%; /* Adjusts image width to 45% of the container */
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            /* Style for video embedding */
+            .video-container {
+                margin-top: 20px;
+            }
+            .video-container video {
+                width: 100%;
+                max-width: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="navbar">
+                     <li><a href ="classesdemots/index.html"> Outil de grammaire </a></li>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li class="dropdown">
+                        <a href="#">Créations ↓</a>
+                        <div class="dropdown">
+                            <a href="3D.html">Imprimante 3D</a>
+                            <a href="laser.html">Gravure/Découpe Laser</a>
+                            <a href="programming.html">Programmation</a>
+                        </div>
+                    </li>
+                    
                 </ul>
-            </li>
-            <li><a href="../hobbies/hobbies.html" >Loisirs</a></li>
-            <li><a href="../Contact/Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h1>Mes créations électroniques !</h1>
-            <article>
-                <h2>Projets LED</h2>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/1.jpg">
-                        <img src="../images/electronics/page/1.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">La base de mon support RGB en acrylique</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/4.jpg">
-                        <img src="../images/electronics/page/4.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">De gauche à droite : mon support lumineux Spider-Man, Iron Man et le support en acrylique lumineux</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/2.mp4">
-                        <video width="250" controls>
-                            <source src="../images/electronics/page/2.mp4" type="video/mp4">
+            </nav>
+        </header>
+        <div class="container">
+            <main>
+                <section>
+                    <h1>Créations Électroniques</h1>
+                    <p>
+                        Avec plus de dix ans d'expérience dans le domaine de l'électronique, tant à titre personnel que professionnel, je me suis lancé dans la création et la fabrication de diverses solutions électroniques. Mon expertise comprend l'assemblage de systèmes complexes, la programmation de circuits, et la conception de dispositifs innovants adaptés à différents besoins.
+                    </p>
+                    <h2>Ordinateurs et Systèmes</h2>
+                    <p>
+                        Mon intérêt pour les ordinateurs a commencé avant même 10 ans, et depuis, j'ai construit des ordinateurs pour moi-même, des entreprises, ainsi que pour d'autres personnes. Construire des ordinateurs a toujours été une passion pour moi, et cela m'a permis d'acquérir une grande expérience dans l'assemblage, la personnalisation et l'optimisation de systèmes informatiques. J'ai travaillé sur des projets variés allant des stations de travail pour professionnels aux configurations pour des utilisateurs à domicile.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/3.jpg" alt="Système informatique personnalisé" />
+                        <img src="../images/electronics/page/5.jpg" alt="Assemblage d'ordinateur" />
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Projets Scolaires</h2>
+                    <p>
+                        Voici deux projets réalisés pendant mes études universitaires qui démontrent mon expertise en électronique et en fabrication.
+                    </p>
+                    <h3>Machine CNC basées sur GRBL</h3>
+                    <p>
+                        Ce projet a été mon projet final en collège, où j'ai construit une machine CNC en utilisant le contrôleur GRBL. Ce projet m'a permis de développer des compétences approfondies en programmation, en mécatronique et en fabrication de systèmes automatisés.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/7.jpg" alt="Machine CNC GRBL" />
+                    </div>
+
+                    <h3>Roue Médicinale Lumineuse</h3>
+                    <p>
+                        Lors de mes études universitaires, j'ai créé une roue médicinale lumineuse pour l'un de mes cours. Ce projet a combiné mon intérêt pour l'électronique et les traditions culturelles. J'ai conçu et fabriqué cette roue à l'aide de LEDs et d'un circuit personnalisé pour offrir un éclairage dynamique et significatif.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/10.jpg" alt="Roue Médicinale Lumineuse" />
+                        <img src="../images/electronics/page/11.jpg" alt="Roue Médicinale en fonction" />
+                    </div>
+
+                    <div class="video-container">
+                        <video controls>
+                            <source src="../images/electronics/medwheel.mp4" type="video/mp4" />
+                            Votre navigateur ne prend pas en charge la vidéo.
                         </video>
-                    </a>
-                    <div class="desc">Le dessus du support RGB en acrylique</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/6.jpg">
-                        <img src="../images/electronics/page/6.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class "desc">Un "cœur d'arc" de cosplay</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/10.jpg">
-                        <img src="../images/electronics/page/10.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">L'intérieur de la roue lumineuse</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/11.jpg">
-                        <img src="../images/electronics/page/11.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">L'avant de la roue de médecine</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/medwheel.mp4">
-                        <video width="250" controls>
-                            <source src="../images/electronics/medwheel.mp4" type="video/mp4">
-                        </video>
-                    </a>
-                    <div class="desc">Une roue de médecine lumineuse conçue pour un cours d'études autochtones.</div>
-                </div>
-                <h2>Ordinateurs</h2>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/3.jpg">
-                        <img src="../images/electronics/page/3.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">Mon ordinateur personnel</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/5.jpg">
-                        <img src="../images/electronics/page/5.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">Un ordinateur sur mesure pour gérer la surveillance et diverses opérations dans une entreprise locale.</div>
-                </div>
-                <h2>Arduino</h2>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/7.jpg">
-                        <img src="../images/electronics/page/7.jpg" alt="électronique" width="300" height="400">
-                    </a>
-                    <div class="desc">Ma graveuse sur bois Arduino basée sur CNC réalisée en tant que projet de fin d'études à l'université.</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/8.jpg">
-                        <img src="../images/electronics/page/8.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">Luxmètre Arduino, partie 1</div>
-                </div>
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/9.jpg">
-                        <img src="../images/electronics/page/9.jpg" alt="électronique" width="300" height="200">
-                    </a>
-                    <div class="desc">Luxmètre Arduino, partie 2</div>
-                </div>
-            </article>
-        </section>
-        <aside>
-            <h2>Électronique</h2>
-            <p>Voici quelques exemples de mes créations préférées en électronique. N'hésitez pas à cliquer sur chacune d'elles pour les
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Couvertures de Comics Lumineuses</h2>
+                    <p>
+                        Une de mes créations récentes comprend des couvertures de comics illuminées. J'ai fabriqué ces couvertures en utilisant des plastiques transparents et opaques pour créer des effets lumineux captivants. Ces couvertures apportent une touche moderne à des pièces classiques, en intégrant des éléments électroniques pour une expérience interactive.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/4.jpg" alt="Couverture de Comic Lumineuse" />
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
