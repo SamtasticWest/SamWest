@@ -1,158 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Electronic Creations</title>
+        <link rel="stylesheet" href="../styles.css" />
+        <style>
+            /* Resize images to smaller scale */
+            .image-gallery img {
+                width: 45%; /* Adjusts image width to 45% of the container */
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            /* Style for video embedding */
+            .video-container {
+                margin-top: 20px;
+            }
+            .video-container video {
+                width: 100%;
+                max-width: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="navbar">
+                     <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Creations ↓</a>
+                        <div class="dropdown">
+                            <a href="3D.html">3D Printer</a>
+                            <a href="laser.html">Laser Engraving/Cutting</a>
+                            <a href="programming.html">Programming</a>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <main>
+                <section>
+                    <h1>Electronic Creations</h1>
+                    <p>
+                        With over ten years of experience in electronics, both personally and professionally, I have ventured into creating and manufacturing various electronic solutions. My expertise includes assembling complex systems, programming circuits, and designing innovative devices tailored to different needs.
+                    </p>
+                    <h2>Computers and Systems</h2>
+                    <p>
+                        My interest in computers began when I was under 10 years old, and since then, I have built computers for myself, businesses, and others. Building computers has always been a passion of mine, and it has allowed me to gain extensive experience in assembling, customizing, and optimizing computer systems. I have worked on various projects, from workstations for professionals to setups for home users.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/3.jpg" alt="Custom Computer System" />
+                        <img src="../images/electronics/page/5.jpg" alt="Computer Assembly" />
+                    </div>
+                </section>
 
-<head>
-	<meta charset="utf-8">
-	<title>Sam West</title>
-	<link rel="shortcut icon" href="../images/favicon.ico">
-	<link rel="stylesheet" href="../styles/normalize.css">
-	<link rel="stylesheet" href="../styles/creations.css">
-</head>
+                <section>
+                    <h2>School Projects</h2>
+                    <p>
+                        Here are two projects completed during my university studies that demonstrate my expertise in electronics and manufacturing.
+                    </p>
+                    <h3>GRBL-based CNC Machine</h3>
+                    <p>
+                        This project was my final project in college, where I built a CNC machine using the GRBL controller. This project allowed me to develop in-depth skills in programming, mechatronics, and automated systems fabrication.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/7.jpg" alt="GRBL CNC Machine" />
+                    </div>
 
-<body>
-	<header>
-		<img src="../images/SWLOGO.PNG" alt="SW logo" height="90">
-		<h2><span class="shadow">Sam West's Website</span></h2>
-		<h3>A Collection Of My Skills, Achievements And More!</h3>
-	</header>
-	<nav id="nav_menu">
-    	<ul>
-        	<li><a href="../index.html" >Home</a></li>
-        	<li><a href="../Resume/Resume.html">Resume</a></li>
-        	<li><a href="Creations.html" class="current">Creations</a>
-        	<ul>
-                	<li><a href="3D.html">3D Printed</a></li>
-                	<li><a href="laser.html">Laser Engraving/Cutting</a></li>
-                	<li><a href="electronics.html" class="current">Electrionics</a></li>
-                	<li><a href="programming.html">Programming</a></li>
-            	</ul>
-        	</li>
-        	<li><a href="../hobbies/hobbies.html" >Hobbies</a></li>
-        	<li><a href="../Contact/Contact.html">Contact</a></li>
-    	</ul>
-	</nav>
-	<main>
-		<section>
-		    <h1>My Electronic Creations!</h1>
-			
-            <article>
-            <h2>LED projects</h2>
-            
-            
-			 <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/1.jpg">
-                    <img src="../images/electronics/page/1.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">The base of my acrylic<br>RGB stand</div>
-                </div>
-                
-                
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/4.jpg">
-                    <img src="../images/electronics/page/4.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">From left to right: My light up<br>Spider-Man Stand,Iron Man<br>and the light up acrylic stand</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/2.mp4">
-                        <video width="250" controls>
-                        <source src="../images/electronics/page/2.mp4" type="video/mp4">
+                    <h3>Illuminated Medicinal Wheel</h3>
+                    <p>
+                        During my university studies, I created an illuminated medicinal wheel for one of my courses. This project combined my interest in electronics and cultural traditions. I designed and built this wheel using LEDs and a custom circuit to provide dynamic and meaningful lighting.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/10.jpg" alt="Illuminated Medicinal Wheel" />
+                        <img src="../images/electronics/page/11.jpg" alt="Medicinal Wheel in Operation" />
+                    </div>
+
+                    <div class="video-container">
+                        <video controls>
+                            <source src="../images/electronics/medwheel.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
                         </video>
-                    </a>
-                <div class="desc">The top of the acrylic RGB<br> stand</div>
-                </div>
-                
-                  <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/6.jpg">
-                    <img src="../images/electronics/page/6.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">A cosplay "arc reactor"</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/10.jpg">
-                    <img src="../images/electronics/page/10.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">The interior of<br>The light up<br>medicine wheel</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/11.jpg">
-                    <img src="../images/electronics/page/11.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">The  front<br>of the<br>Medicine<br>wheel</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/medwheel.mp4">
-                        <video width="250" controls>
-                        <source src="../images/electronics/medwheel.mp4" type="video/mp4">
-                        </video>
-                    </a>
-                <div class="desc">A light up medicine wheel which<br> was designed for<br>an indigenous studies class.</div>
-                </div>
-                
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <h2>Computers</h2>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/3.jpg">
-                    <img src="../images/electronics/page/3.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">My Personal Computer</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/5.jpg">
-                    <img src="../images/electronics/page/5.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">A custom built computer to handle<br>surveilence and different opperations<br>at a local business.</div>
-                </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                  <h2>Arduino</h2>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/7.jpg">
-                    <img src="../images/electronics/page/7.jpg" alt="electronics" width="300" height="400">
-                    </a>
-                <div class="desc">My CNC arduino based wood engraver<br>made as my final project in college</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/8.jpg">
-                    <img src="../images/electronics/page/8.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">Arduino based Lux meter pt.1</div>
-                </div>
-                
-                <div class="gallery">
-                    <a target="_blank" href="../images/electronics/page/9.jpg">
-                    <img src="../images/electronics/page/9.jpg" alt="electronics" width="300" height="200">
-                    </a>
-                <div class="desc">Arduino based Lux meter pt.1</div>
-                </div>
-                
-                
-                
-                 
-                
-                
-                
-			</article>
-			
-			
-		</section>
-		<aside>
-			<h2>Electronics</h2>
-			<p>Here are some examples of some of my favourite things I've made with electronics. Feel free to click on any to see them in full screen.
-			</p>
-			
-		</aside>
-	</main>
-	<footer>
-		<p>Samtastic</p>
-	</footer>
-</body>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Illuminated Comic Covers</h2>
+                    <p>
+                        One of my recent creations includes illuminated comic covers. I made these covers using both transparent and opaque plastics to create captivating light effects. These covers add a modern touch to classic pieces, integrating electronic elements for an interactive experience.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../images/electronics/page/4.jpg" alt="Illuminated Comic Cover" />
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
 </html>
