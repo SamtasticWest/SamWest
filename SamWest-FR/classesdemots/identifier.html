@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>French Grammar Tool</title>
+        <link rel="stylesheet" href="styles.css" />
+        <style>
+            /* Center the page content */
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                color: #333;
+            }
+
+            input {
+                padding: 10px;
+                margin-top: 10px;
+                width: 70%;
+                font-size: 16px;
+            }
+
+            button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                margin-top: 10px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            /* Table styling for result */
+            table {
+                width: 100%;
+                margin-top: 20px;
+                border-collapse: collapse;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #ddd;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                text-align: center;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+
+            .dropdown-content a:hover {
+                color: #007bff;
+            }
+
+            .disclaimer {
+                font-size: 14px;
+                color: #555;
+                margin-top: 20px;
+            }
+
+            .disclaimer p {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="dropdown">
+                        <a href="#">Classes de mots ↓</a>
+                        <div class="dropdown">
+                            <a href="determinants.html">Les déterminants</a>
+                            <a href="pronoms.html">Les pronoms</a>
+                            <a href="noms.html">Les noms</a>
+                            <a href="adjectifs.html">Les adjectifs</a>
+                            <a href="verbes.html">Les verbes</a>
+                            <a href="adverbes.html">Les adverbes</a>
+                            <a href="prépositions.html">Les prépositions</a>
+                            <a href="interjections.html">Les interjections</a>
+                            <a href="conjonctions.html">Les conjonctions</a>
+                        </div>
+                    </li>
+                    <li><a href="SVC.html">Phrase SVC</a></li>
+                    <li><a href="identifier.html">Identifier un mot</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h2>Entrez un mot pour l'identifier</h2>
+            <input type="text" id="wordInput" placeholder="Entrez un mot en français" />
+            <button onclick="searchWord()">Identifier</button>
+
+            <div id="result"></div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <p>
+                    <strong>Info :</strong> Cette section du site est encore en cours de construction. Il peut y avoir
+                    des erreurs, donc bien que cet outil soit utile comme référence, il n'est pas toujours 100% précis.
+                    Ne vous fiez pas uniquement à cet outil pour l'exactitude complète.
+                </p>
+                <p>
+                    Notez que certains noms propres et verbes composés peuvent ne pas être disponibles dans cette base
+                    de données.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            async function fetchCSV() {
+                const response = await fetch("lexique.csv"); // Load CSV from the same folder
+                const data = await response.text();
+                return data;
+            }
+
+            async function searchWord() {
+                const inputWord = document.getElementById("wordInput").value.trim().toLowerCase();
+                const resultElement = document.getElementById("result");
+
+                if (!inputWord) {
+                    resultElement.textContent = "Veuillez entrer un mot.";
+                    return;
+                }
+
+                const csvData = await fetchCSV();
+                const rows = csvData.split("\n").map((row) => row.split(",")); // Split by commas (,)
+
+                // Store all found rows for duplicates
+                const foundRows = rows.filter((row) => row[0]?.toLowerCase() === inputWord);
+
+                if (foundRows.length === 0) {
+                    resultElement.textContent = "Mot non trouvé dans la base de données.";
+                    return;
+                }
+
+                // Process each found row
+                let resultHTML = "";
+                foundRows.forEach((row, index) => {
+                    const wordType = row[3] || "Inconnu"; // Column 4 (cgram)
+                    const gender = row[4] || "Inconnu"; // Column 5 (m/f)
+                    const number = row[5] || "Inconnu"; // Column 6 (s/p)
+                    const infinitive = row[2] || "Inconnu"; // Column 3 (lemme)
+                    const verbTense = row[10] || "Inconnu"; // Column 11 (infover)
+
+                    // Mapping grammatical classes to readable names
+                    const wordTypeMap = {
+                        NOM: "Nom",
+                        VER: "Verbe",
+                        ADJ: "Adjectif",
+                        ADV: "Adverbe",
+                        PREP: "Préposition",
+                        CONJ: "Conjonction",
+                        INTJ: "Interjection",
+                        DET: "Déterminant",
+                        PRON: "Pronom"
+                    };
+
+                    // Process verb tense (e.g., "ind:pre:3p")
+                    let tenseLabel = "Inconnu";
+                    let personLabel = "Inconnu";
+
+                    if (verbTense.startsWith("ind:pre")) {
+                        tenseLabel = "Indicatif présent";
+                        const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 3p)
+                        const person = personPart.split(";")[0]; // Only take the part before the semicolon
+
+                        const personMap = {
+                            "1s": "1ère personne du singulier",
+                            "2s": "2e personne du singulier",
+                            "3s": "3e personne du singulier",
+                            "1p": "1ère personne du pluriel",
+                            "2p": "2e personne du pluriel",
+                            "3p": "3e personne du pluriel"
+                        };
+
+                        personLabel = personMap[person] || "Inconnu";
+                    }
+
+                    // Add logic for other tenses:
+                    if (verbTense.startsWith("par:pre")) {
+                        tenseLabel = "Participe présent";
+                    } else if (verbTense.startsWith("sub:pre")) {
+                        tenseLabel = "Subjonctif présent";
+                        personLabel = "2e personne du singulier"; // Subjunctive for 2s (extracted from sub:pre:2s)
+                    } else if (verbTense.startsWith("cnd:pre")) {
+                        tenseLabel = "Conditionnel présent";
+                        const personParts = verbTense.split(":")[2]; // Extracting person info correctly for cnd:pre
+                        const person = personParts.split(";")[0]; // Only the first part before any semicolons
+
+                        const personMap = {
+                            "1s": "1ère personne du singulier",
+                            "2s": "2e personne du singulier",
+                            "3s": "3e personne du singulier",
+                            "1p": "1ère personne du pluriel",
+                            "2p": "2e personne du pluriel",
+                            "3p": "3e personne du pluriel"
+                        };
+
+                        personLabel = personMap[person] || "Inconnu";
+                    } else if (verbTense.startsWith("ind:fut")) {
+                        tenseLabel = "Futur simple";
+                        const personPart = verbTense.split(":")[2]; // Extract person info (e.g., 1s)
+                        const personMap = {
+                            "1s": "1ère personne du singulier",
+                            "2s": "2e personne du singulier",
+                            "3s": "3e personne du singulier",
+                            "1p": "1ère personne du pluriel",
+                            "2p": "2e personne du pluriel",
+                            "3p": "3e personne du pluriel"
+                        };
+                        personLabel = personMap[personPart] || "Inconnu";
+                    } else if (verbTense.startsWith("imp:pre")) {
+                        tenseLabel = "Imparfait de l'indicatif";
+                        const personPart = verbTense.split(";")[0]; // Extract person info (e.g., 2p)
+                        personLabel = "2e personne du pluriel";
+                    }
+
+                    // If the word is a verb, don't display genre and number, but display infinitive and verb tense
+                    resultHTML += `<table>
+                    <tr>
+                        <th>Mot ${foundRows.length > 1 ? index + 1 : ""}</th>
+                        <td>${inputWord}</td>
+                    </tr>
+                    <tr>
+                        <th>Classe de mot</th>
+                        <td>${wordTypeMap[wordType] || "Inconnu"}</td>
+                    </tr>
+                    <tr>
+                        <th>Infinitif</th>
+                        <td>${infinitive}</td>
+                    </tr>
+                    <tr>
+                        <th>Temps de verbe</th>
+                        <td>${tenseLabel}</td>
+                    </tr>
+                    <tr>
+                        <th>Personne</th>
+                        <td>${personLabel}</td>
+                    </tr>
+                </table><br>`;
+                });
+
+                // Display the result
+                resultElement.innerHTML = resultHTML;
+            }
+        </script>
+    </body>
+</html>
